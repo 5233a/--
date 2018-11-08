@@ -6,3 +6,5 @@
 自顶向下设计最初把问题分解成一套子问题，然后再把子问题分解为子问题，这一过程将一直持续到每个过程都足够基础，不需再进行分解为止。他是一种程序开发技术，其
 中问题被分解为更容易处理的子问题，这些子问题的解决方案组合起来构成整体问题的解决方案。
 ![](https://img-blog.csdn.net/20171130122542055?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveno5NjI5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+## 实例
+为了更清晰地分析这个算法，我就拿今天洗衣机运作有关的伪代码为例，分析自顶向下的方法的优势。
