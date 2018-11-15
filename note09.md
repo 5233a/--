@@ -2,5 +2,5 @@
 ## 概况
 诞生时间 : 1972年（Smalltalk） 
 
-创始人 ： Alan Curtis Key 
+创始人 ： Alan Curtis Key <br/>
 核心思想 ： 个体之间可通过彼此发送“信息”交流，来解决问题。 
