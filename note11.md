@@ -16,6 +16,8 @@
 
 ### 伪代码实现
 
+#### 方法一
+
 list = {Sue, Cora, Beth, Ann, June}
 
 FOR i from 0 to list.length-2 DO
@@ -28,7 +30,11 @@ list.swap (i, index)
 
 END IF
 
-END FOR list = {Sue, Cora, Beth, Ann, June}
+END FOR 
+
+#### 方法二
+
+list = {Sue, Cora, Beth, Ann, June}
 
 FOR i from 0 to list.length-2 DO
 
@@ -41,3 +47,7 @@ IF list[j] < list[index] THEN index=j
 END FOR …
 
 END FOR 
+
+#### 思考题
+
+哪个更好？
