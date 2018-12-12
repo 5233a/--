@@ -6,73 +6,73 @@
 这串代码的意义，现在，我就通过这个过程讲述一下我的心得体会吧。
 ## 代码（来源于CSDN）
 > /*蛇越长跑得越快*/
-/*蛇能自己找食物*/
-/*作者：SGAFPZ*/
-#include <stdio.h>
-#include <windows.h>
-#include <stdlib.h>
-#include <math.h>
-//#include <unistd.h>
-#include <conio.h>
-#include <string.h>
-#include <time.h>
-void food();
-void show();
-void move();
-void turn();
-void check();
-void ini();
-void calculate();
-int movable[4] = { 0, 1, 1, 0 };  //数组的下标表示方向，0123分别表示上下左右，下同
-int distance[4] = { 9999, 9999, 9999, 9999 };
-int  dy[4] = { 0, 1, 0, -1 };
-int  dx[4] = { -1, 0, 1, 0 };
-int sum = 5;  //蛇总长度
-int over = 0;
-int speed;   
-int foodx, foody;  //食物的坐标
-char map[17][17];
-
-struct snake {
-    int x, y;  //身体坐标 
-    int dir;  //方向（只有蛇头的方向是有用的） 
-} A[100];
-
-void ini() {  //初始化界面
-    speed = 500;
-    over = 0;
-    sum = 5;
-    movable[0] = 0; movable[1] = 1; movable[2] = 1; movable[3] = 0;
-    distance[0] = 9999; distance[1] = 9999; distance[2] = 9999; distance[3] = 9999;
-    int i, j;
-    for (i = 0; i < 100; i++) {  //初始化蛇头和蛇身的数据
-        A[i].dir = 0;
-        A[i].x = 0;
-        A[i].y = 0;
-    }
-    A[0].x = 1; A[0].y = 1;  //地图左上角设置一条长度为5的蛇
-    A[1].x = 1; A[1].y = 2;
-    A[2].x = 1; A[2].y = 3;
-    A[3].x = 1; A[3].y = 4;
-    A[4].x = 1; A[4].y = 5; A[4].dir = 1;
-    srand(time(0));
-    for (i = 0; i < 17; i++) {  //设置地图
-        for (j = 0; j < 17; j++) {
-            map[i][j] = '*';
-        }
-    }
-    for (i = 1; i < 16; i++) {
-        for (j = 1; j < 16; j++) {
-            map[i][j] = ' ';
-        }
-    }
-    //map[6][5] = '*'; map[6][6] = '*'; map[6][7] = '*';
-    //map[7][5] = '*'; map[7][7] = '*';
-    map[A[4].x][A[4].y] = 'H';  //设置蛇头
-    for (i = 0; i < sum - 1; i++) {  //设置蛇身
-        map[A[i].x][A[i].y] = 'X';
-    }
-    food();
+> /*蛇能自己找食物*/
+> /*作者：SGAFPZ*/
+> #include <stdio.h>
+> #include <windows.h>
+> #include <stdlib.h>
+> #include <math.h>
+> //#include <unistd.h>
+> #include <conio.h>
+> #include <string.h>
+> #include <time.h>
+> void food();
+> void show();
+> void move();
+> void turn();
+> void check();
+> void ini();
+> void calculate();
+> int movable[4] = { 0, 1, 1, 0 };  //数组的下标表示方向，0123分别表示上下左右，下同
+> int distance[4] = { 9999, 9999, 9999, 9999 };
+> int  dy[4] = { 0, 1, 0, -1 };
+> int  dx[4] = { -1, 0, 1, 0 };
+> int sum = 5;  //蛇总长度
+> int over = 0;
+> int speed;   
+> int foodx, foody;  //食物的坐标
+> char map[17][17];
+> 
+> struct snake {
+>     int x, y;  //身体坐标 
+>     int dir;  //方向（只有蛇头的方向是有用的） 
+> } A[100];
+> 
+> void ini() {  //初始化界面
+>     speed = 500;
+>     over = 0;
+>     sum = 5;
+>     movable[0] = 0; movable[1] = 1; movable[2] = 1; movable[3] = 0;
+>     distance[0] = 9999; distance[1] = 9999; distance[2] = 9999; distance[3] = 9999;
+>     int i, j;
+>     for (i = 0; i < 100; i++) {  //初始化蛇头和蛇身的数据
+>         A[i].dir = 0;
+>         A[i].x = 0;
+>         A[i].y = 0;
+>     }
+>     A[0].x = 1; A[0].y = 1;  //地图左上角设置一条长度为5的蛇
+>     A[1].x = 1; A[1].y = 2;
+>     A[2].x = 1; A[2].y = 3;
+>     A[3].x = 1; A[3].y = 4;
+>     A[4].x = 1; A[4].y = 5; A[4].dir = 1;
+>     srand(time(0));
+>     for (i = 0; i < 17; i++) {  //设置地图
+>         for (j = 0; j < 17; j++) {
+>             map[i][j] = '*';
+>         }
+>     }
+>     for (i = 1; i < 16; i++) {
+>         for (j = 1; j < 16; j++) {
+>             map[i][j] = ' ';
+>        }
+>     }
+>    //map[6][5] = '*'; map[6][6] = '*'; map[6][7] = '*';
+>     //map[7][5] = '*'; map[7][7] = '*';
+>     map[A[4].x][A[4].y] = 'H';  //设置蛇头
+>     for (i = 0; i < sum - 1; i++) {  //设置蛇身
+>         map[A[i].x][A[i].y] = 'X';
+>     }
+>     food();
     calculate();
 }
 
