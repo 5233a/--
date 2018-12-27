@@ -39,7 +39,7 @@
 
 
 企业代表：百度
-![]()https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545907903848&di=d818ee37073a52612544e7f24767d1e4&imgtype=0&src=http%3A%2F%2Fwww.guoji.biz%2Fimages%2Fbb8.jpg
+![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545907903848&di=d818ee37073a52612544e7f24767d1e4&imgtype=0&src=http%3A%2F%2Fwww.guoji.biz%2Fimages%2Fbb8.jpg)
 ### 电商卖货（包括实物产品和虚拟商品）
 世界上最早的电子商务公司是如今的世界首富Jeff Bezos 在1995年创办的亚马逊。中国最早的电子商务公司则是马爸爸在1999年创办的8848。
 
